@@ -11,7 +11,7 @@ shinyUI(fluidPage(
 
     sidebarPanel(
       p("Choose a date to view the hydrofoil schedule. Note that there are no trips on Mondays or Thursdays at any point in the season, or Wednesdays after 24 August."),
-      p("Trips 1 and 3 run from 3 July to 23 August; Trip 2 runs from 5 June to 1 July and 24 August to 27 September)"),
+      p("Trips 1 and 3 run from 3 July to 23 August; Trip 2 runs from 5 June to 1 July and 24 August to 27 September."),
       p("The full schedule can be found on the",
         shiny::a("hydrofoil website.",
                  href = "http://www.vsrp.ru/passengers/timetable/")),
