@@ -7,7 +7,7 @@ shinyServer(function(input, output) {
   
   ## Function for trips 1 and 3
   ## July 3 - August 23, except Monday and Thursday
-  a <- function(date) {
+  trip13 <- function(date) {
     if (date >= as.Date("2015-07-03") & date <= as.Date("2015-08-23")) {
       if (!weekdays(date) %in% c("Monday", "Thursday")) {
         TRUE
@@ -22,7 +22,7 @@ shinyServer(function(input, output) {
   ## Function for trip 2
   ## June 5 - July 1 except Monday and Thursday,
   ## August 24 - September 27 except Monday, Wednesday, and Thursday
-  b <- function(date) {
+  trip2 <- function(date) {
     if (date >= as.Date("2015-06-05") & date <= as.Date("2015-07-01")) {
       if (!weekdays(date) %in% c("Monday", "Thursday")) {
         TRUE
@@ -46,9 +46,9 @@ shinyServer(function(input, output) {
                                    by = "day"))) %>%
     mutate(dow = weekdays(date)) %>%
     group_by(date) %>%
-    mutate(trip1 = a(date),
-           trip2 = b(date),
-           trip3 = a(date))  
+    mutate(trip1 = trip13(date),
+           trip2 = trip2(date),
+           trip3 = trip13(date))  
 
   ## Timetable
   tmtbl <- read.csv("timetable.csv")
@@ -68,14 +68,12 @@ shinyServer(function(input, output) {
       tmtbl %>%
         filter(id %in% trips, dir == "ikt-bk") %>%
         select(-id, -dir) %>%
-        select(Trip, Irkutsk, Listvyanka, BK) %>%
-        print()
+        select(Trip, Irkutsk, Listvyanka, BK)
     } else if (input$radio == 2) {
       tmtbl %>%
         filter(id %in% trips, dir == "bk-ikt") %>%
         select(-id, -dir) %>%
-        select(Trip, BK, Listvyanka, Irkutsk) %>%
-        print()
+        select(Trip, BK, Listvyanka, Irkutsk)
     } else {
       head(iris)
     }
