@@ -9,7 +9,7 @@ shinyUI(fluidPage(
 
     sidebarPanel(
       ## Input date
-      dateInput("date", label = h3("Date input"), value = "2015-07-01"),
+      dateInput("date", label = h3("Choose a date"), value = "2015-07-01"),
 
       ## Direction (to BK or to Irkutsk)		
       radioButtons("radio", label = h3("Direction"),		
