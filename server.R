@@ -1,6 +1,5 @@
 library("shiny")
 library("dplyr")
-library("knitr")
 
 shinyServer(function(input, output) {
 
