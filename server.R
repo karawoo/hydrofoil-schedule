@@ -59,7 +59,7 @@ shinyServer(function(input, output) {
 
     ## Find which trips to display
     trips <- sched %>%
-      filter(date == "2015-07-03") %>%
+      filter(date == input$date) %>%
       select(trip1, trip2, trip3) %>%
       apply(1, function(x) colnames(.)[which(x == TRUE)]) %>%
       as.vector()
