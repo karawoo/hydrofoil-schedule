@@ -9,7 +9,7 @@ shinyUI(fluidPage(
 
     sidebarPanel(
       ## Input date
-      dateInput("date", label = h3("Date input"), value = "2016-08-01")
+      dateInput("date", label = h3("Date input"), value = "2015-07-01")
         
     ),
 
