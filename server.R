@@ -65,12 +65,22 @@ shinyServer(function(input, output) {
       as.vector()
 
     ## Display schedule for trips
-    tmtbl %>%
-      filter(id %in% trips) %>%
-      filter(Depart.Arrive != "Arrive") %>%
-      select(-id)
-    
-  })
+    if (input$radio == 1) {
+      tmtbl %>%
+        filter(id %in% trips, dir == "ikt-bk") %>%
+        select(-id, -dir) %>%
+        select(Trip, Irkutsk, Listvyanka, BK) %>%
+        print()
+    } else if (input$radio == 2) {
+      tmtbl %>%
+        filter(id %in% trips, dir == "bk-ikt") %>%
+        select(-id, -dir) %>%
+        select(Trip, BK, Listvyanka, Irkutsk) %>%
+        print()
+    } else {
+      head(iris)
+    }
+  }, include.rownames= FALSE)
 
 })
 
