@@ -13,7 +13,7 @@ shinyUI(fluidPage(
         
     ),
 
-    mainPanel()
+    mainPanel(tableOutput("schedule"))
     
   )
 ))

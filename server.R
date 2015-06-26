@@ -1,5 +1,6 @@
 library("shiny")
 library("dplyr")
+library("knitr")
 
 shinyServer(function(input, output) {
 
@@ -53,7 +54,23 @@ shinyServer(function(input, output) {
   ## Timetable
   tmtbl <- read.csv("timetable.csv")
 
-  
+  ## Return timetable for a given day
+  output$schedule <- renderTable({
+
+    ## Find which trips to display
+    trips <- sched %>%
+      filter(date == "2015-07-03") %>%
+      select(trip1, trip2, trip3) %>%
+      apply(1, function(x) colnames(.)[which(x == TRUE)]) %>%
+      as.vector()
+
+    ## Display schedule for trips
+    tmtbl %>%
+      filter(id %in% trips) %>%
+      filter(Depart.Arrive != "Arrive") %>%
+      select(-id)
+    
+  })
 
 })
 
