@@ -1,0 +1,7 @@
+Trip,Depart/Arrive,Irkutsk,Listvyanka,BK,Listvyanka,Irkutsk
+Trip 1,Arrive,,09:45:00 AM,10:15:00 AM,12:55:00 PM,02:00:00 PM
+Trip 1,Depart,08:45:00 AM,09:55:00 AM,12:30:00 PM,01:00:00 PM,
+Trip 2,Arrive,,01:30:00 PM,02:00:00 PM,06:25:00 PM,07:30:00 PM
+Trip 2,Depart,12:30:00 PM,01:35:00 PM,06:00:00 PM,06:30:00 PM,
+Trip 3,Arrive,,03:45:00 PM,04:15:00 PM,06:25:00 PM,07:30:00 PM
+Trip 3,Depart,02:45:00 PM,03:50:00 PM,06:00:00 PM,06:30:00 PM,
